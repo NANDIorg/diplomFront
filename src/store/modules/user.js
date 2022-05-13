@@ -38,7 +38,7 @@ export const mutations = {
 
 export const actions = {
     async registerUser({commit}, newUser){
-        await axios.post('http://'+domen+'/api/user/reg', newUser)
+        await axios.post('http://'+store.domen+'/api/user/reg', newUser)
         .then(res => {
             commit('SET_TOKEN', res.data.token)
             commit('SET_MONEY', res.data.money)
@@ -52,7 +52,7 @@ export const actions = {
         })
     },
     async authUser({commit}, newUser){
-        await axios.post('http://'+domen+'/api/user/auth', newUser)
+        await axios.post('http://'+store.domen+'/api/user/auth', newUser)
         .then(res => {
             commit('SET_TOKEN', res.data.token)
             commit('SET_MONEY', res.data.money)
@@ -64,7 +64,7 @@ export const actions = {
         })
     },
     async getServerMoney({commit}){
-        await axios.get('http://'+domen+'/api/user/getMoney', {headers: {'token': localStorage.token}})
+        await axios.get('http://'+store.domen+'/api/user/getMoney', {headers: {'token': localStorage.token}})
         .then(res => {
             commit('SET_MONEY', res.data.money)
             console.log(res)
@@ -75,7 +75,7 @@ export const actions = {
     },
     async pushMoney({commit}, moneyAndToken){
         console.log(moneyAndToken)
-        await axios.post('http://'+domen+'/api/user/pushMoney', moneyAndToken)
+        await axios.post('http://'+store.domen+'/api/user/pushMoney', moneyAndToken)
         .then(res => {
             console.log(res)
         })
@@ -85,7 +85,7 @@ export const actions = {
     },
     async createDispute({commit}, teams){
         console.log(teams)
-        await axios.post('http://'+domen+'/api/disput/createDisput', teams)
+        await axios.post('http://'+store.domen+'/api/disput/createDisput', teams)
         .then(res => {
             console.log(res)
         })
