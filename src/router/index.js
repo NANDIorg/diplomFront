@@ -1,5 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
+import Home from '../views/Home'
+import Auth from '../components/authorization'
+import Reg from '../components/registration'
+import DisputeCreate from '../components/disputeCreate'
+import Pushmoney from '../components/pushmoney'
+import DisputeBase from '../components/dispute'
+import DisputeDetail from '../components/disputeDetail'
 
 const routes = [
   {
@@ -8,12 +14,30 @@ const routes = [
     component: Home
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/auth',
+    name: 'Auth',
+    component: Auth
+  },
+  {
+    path: '/reg',
+    name: 'Reg',
+    component: Reg
+  },
+  {
+    path: '/disputeCreate/:id', 
+    props: true,
+    name: 'DisputeDetail',
+    component: DisputeDetail
+  },
+  {
+    path: '/disputeCreate',
+    name: 'DisputeCreate',
+    component: DisputeCreate
+  },
+  {
+    path: '/pushmoney',
+    name: 'Pushmoney',
+    component: Pushmoney
   }
 ]
 

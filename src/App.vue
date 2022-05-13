@@ -1,10 +1,24 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
+<div class="main-container">
+  <header-co/>
   <router-view/>
+</div>
+<Footer/>
 </template>
+
+<script>
+import cssMain from '@/assets/css/main.css'
+import cssHeader from '@/assets/css/header.css'
+import headerCo from '@/views/header.vue'
+import Footer from '@/views/footer.vue'
+
+export default {
+  components: {
+    headerCo,
+    Footer
+  }
+}
+</script>
 
 <style>
 #app {
@@ -13,10 +27,16 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  background-image: url(assets/img/bac1.jpg);
 }
 
 #nav {
   padding: 30px;
+}
+
+a{
+  text-decoration: none;
+  color: black;
 }
 
 #nav a {

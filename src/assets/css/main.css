@@ -1,0 +1,27 @@
+/* .main-container{
+   width: 100%;
+   min-height: 100vh; 
+} */
+input{
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 5px;
+    outline: none;
+}
+
+body{
+    margin: 0;
+}
+
+.container{
+    width: 1180px;
+}
+
+.standart-section {
+    padding: 0 calc(50vw - 590px);
+}
+
+.midle-section {
+    padding: 0 calc(40vw - 590px);
+    border: 1px solid black;
+}
