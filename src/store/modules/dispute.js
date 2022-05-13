@@ -29,7 +29,7 @@ export const mutations = {
 
 export const actions = {
     async getAllDispute({commit}){
-        await axios.get('http://'+store.domen+'/api/dispute/getAllDispute')
+        await axios.get('http://'+state.domen+'/api/dispute/getAllDispute')
         .then(res => {
             commit('SET_ITEMS', res.data)
         })
@@ -39,7 +39,7 @@ export const actions = {
     },
     async getDispute({commit}, info){
         console.log(info)
-        await axios.get(`http://${store.domen}/api/dispute/getMainInfo?idDispute=${info.id}&token=${info.token}`)
+        await axios.get(`http://${state.domen}/api/dispute/getMainInfo?idDispute=${info.id}&token=${info.token}`)
         .then(res => {
             console.log(res)
             commit('SET_ITEM', res.data)
@@ -49,7 +49,7 @@ export const actions = {
         })
     }, //pushBet
     async pushBet({commit}, betInfo){
-        await axios.post('http://'+store.domen+'/api/postBET', betInfo)
+        await axios.post('http://'+state.domen+'/api/postBET', betInfo)
         .then(res => {
             console.log(res)
             store.dispatch('user/getServerMoney')
@@ -61,7 +61,7 @@ export const actions = {
         })
     },
     async selectWinner({commit}, winner){
-        await axios.post('http://'+store.domen+'/api/dispute/closeDispute', winner)
+        await axios.post('http://'+state.domen+'/api/dispute/closeDispute', winner)
         .then(res => {
             console.log(res)
             store.dispatch('user/getServerMoney')
